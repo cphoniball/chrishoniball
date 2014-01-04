@@ -1,3 +1,16 @@
+.cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
 html {
   font-size: 10px; }
 
@@ -18,16 +31,27 @@ a {
     color: #249bff; }
 
 .site-header {
-  padding: 30px 60px;
+  padding: 10px 20px;
   background: #ffc40d;
   color: #3d392c;
   box-shadow: 0 -10px 30px 0px rgba(0, 0, 0, 0.5); }
+  @media only screen and (min-width: 768px) {
+    .site-header {
+      padding: 30px 60px; } }
+
+.site-header {
+  display: table;
+  width: 100%; }
+
+.site-header-content {
+  display: table-cell;
+  text-align: center; }
 
 .blog-title {
-  display: inline-block;
   padding: 15px 20px;
   border: 8px solid #3d392c;
   font-size: 3.4rem;
+  display: inline-block;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s; }
@@ -41,18 +65,28 @@ a {
 
 .blog-description {
   display: inline-block;
-  margin-left: 20px;
   font-family: "museo-sans";
-  vertical-align: super; }
+  vertical-align: super;
+  width: 280px;
+  text-align: center; }
 
 .site-header-nav {
   font-family: "museo-sans";
   font-weight: 900;
   font-size: 1.6rem;
-  float: right;
-  margin-top: 35px; }
+  padding-left: 0;
+  width: 310px;
+  display: block;
+  margin: 0 auto; }
   .site-header-nav li {
     float: left;
     list-style: none;
     margin-right: 20px;
     text-transform: uppercase; }
+    .site-header-nav li:last-of-type {
+      margin-right: 0; }
+  @media only screen and (min-width: 992px) {
+    .site-header-nav {
+      margin-top: 35px;
+      float: right;
+      width: auto; } }

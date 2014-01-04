@@ -1,5 +1,7 @@
 // Styles for chrishoniball.com
 
+@import '../packages/bourbon/bourbon/bourbon'
+
 // variables
 
 $sans-serif: 'museo-sans'
@@ -12,9 +14,43 @@ $color-four: #FFFAC7 // tan/yellow
 $color-five: #FFC40D // yellow
 $color-six: #3D392C // dark brown
 
+// breakpoints
+
+// These line up with twitter bootstrap breakpoints to provide consistency when used with
+// their grid system
+@mixin breakpoint($point)
+	// 768 and down
+	@if $point == xs
+		@media only screen and (max-width: 767px)
+			@content
+	// 768px and up
+	@if $point == sm
+		@media only screen and (min-width: 768px)
+			@content
+	// 992px and up
+	@if $point == md
+		@media only screen and (min-width: 992px)
+			@content
+	// 1200px and up
+	@if $point == lg
+		@media only screen and (min-width: 1200px)
+			@content
+
 // base styles
 
-@import '../packages/bourbon/bourbon/bourbon'
+.cf:before
+.cf:after
+	content: " " /* 1 */
+	display: table /* 2 */
+
+.cf:after
+	clear: both
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after
+	-moz-box-sizing: border-box
+	-webkit-box-sizing: border-box
+	box-sizing: border-box
 
 html
 	font-size: 10px
@@ -45,25 +81,35 @@ a
 	&:hover, &:active, &:focus
 		color: $color-one
 
-
-
-
-
 // index page styles
 
 // header styles
 
 .site-header
-	padding: 30px 60px
+	padding: 10px 20px
 	background: $color-five
 	color: $color-six
 	box-shadow: 0 -10px 30px 0px transparentize(black, .5)
+	@include breakpoint(sm)
+		padding: 30px 60px
+
+.site-header
+	display: table
+	width: 100%
+
+.site-header-content
+	display: table-cell
+	text-align: center
+
+.site-header-left
+
 
 .blog-title
-	display: inline-block
 	padding: 15px 20px
 	border: 8px solid $color-six
 	font-size: 3.4rem
+	display: inline-block
+
 	@include transition(all .3s)
 	a
 		color: $color-six
@@ -75,18 +121,27 @@ a
 
 .blog-description
 	display: inline-block
-	margin-left: 20px
 	font-family: $sans-serif
 	vertical-align: super
+	width: 280px
+	text-align: center
 
 .site-header-nav
 	font-family: $sans-serif
 	font-weight: 900
 	font-size: 1.6rem
-	float: right
-	margin-top: 35px
+	padding-left: 0
+	width: 310px
+	display: block
+	margin: 0 auto
 	li
 		float: left
 		list-style: none
 		margin-right: 20px
 		text-transform: uppercase
+		&:last-of-type
+			margin-right: 0
+	@include breakpoint(md)
+		margin-top: 35px
+		float: right
+		width: auto

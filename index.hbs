@@ -6,12 +6,12 @@
 {{! The big featured header on the homepage, with the site logo and description }}
 <header class="site-header" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
     <div class="site-header-content row">
-        <div class="site-header-left col-sm-6">
+        <div class="site-header-left col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-6">
             <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
             <h2 class="blog-description">{{@blog.description}}</h2>
         </div>
 
-        <div class="site-header-right col-sm-6">
+        <div class="site-header-right col-md-8 col-lg-6">
             <ul class="site-header-nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Work</a></li>
