@@ -191,6 +191,67 @@ pre[class*="language-"]
 		color: $color-one
 		text-decoration: none
 
+// social buttons
+
+$facebook: #3b5998
+$pinterest: #cb2027
+$google-plus: #dd4b39
+$linkedin: #007bb6
+$twitter: #00aced
+
+.social-button
+	padding: 6px 14px
+	border: 0
+	color: white
+	&:hover, &:focus, &:active
+		color: white
+		text-decoration: none
+		cursor: pointer
+	.fa-spinner
+		margin-left: 10px
+
+@mixin social-button-color($color)
+	background-color: $color
+	@include transition(all .3s)
+	&:hover, &:focus
+		background-color: darken($color, 8%)
+	&:active
+		background-color: darken($color, 15%)
+
+.social-facebook
+	@include social-button-color($facebook)
+
+.social-pinterest
+	@include social-button-color($pinterest)
+
+.social-google-plus
+	@include social-button-color($google-plus)
+
+.social-linkedin
+	@include social-button-color($linkedin)
+
+.social-twitter
+	@include social-button-color($twitter)
+
+.button-list
+	list-style: none
+	margin-bottom: 30px
+	padding-left: 0
+	li
+		display: inline-block
+		margin-right: 10px
+
+.social-count
+	margin-left: 10px
+
+.social-button
+	display: inline-block
+	float: left
+	margin-left: 0
+	font-size: 1.4rem
+	a
+		margin: 0
+
 // post styles
 
 .post

@@ -2,7 +2,8 @@ require.config({
 	baseUrl: 'http://localhost:2368',
 	paths: {
 		'jquery': 'assets/packages/jquery/jquery.min',
-		'prism': 'assets/js/prism'
+		'prism': 'assets/js/prism',
+		'socialbuttons': 'assets/libs/socialbuttons/js/social-buttons'
 	},
 	shim: {
 		'prism': {
@@ -10,6 +11,9 @@ require.config({
 		},
 		'jquery': {
 			exports: '$'
+		},
+		'socialbuttons': {
+			deps: ['jquery']
 		}
 	}
 });
@@ -31,5 +35,22 @@ require(['jquery'], function() {
 				$(this).css('left', $left + 'px');
 			});
 		}
+	});
+});
+
+require(['socialbuttons'], function() {
+	$(document).ready(function() {
+
+		if ($('.social-buttons').length) {
+			var socialButtons = new SocialButtons({
+				getCount: false,
+				url: window.location.protocol + "//" + window.location.host + window.location.pathname,
+				selector: '.social-button',
+				title: $('.post-title').text(),
+				summary: $('.post-content p').first().text().substring(0, 60),
+				twitterAccount: 'cphoniball'
+			});
+		}
+
 	});
 });
