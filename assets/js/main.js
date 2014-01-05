@@ -26,6 +26,7 @@ require(['prism'], function() {
 require(['jquery'], function() {
 
 	$(document).ready(function() {
+
 		// make sure dates are properly aligned on the index page
 		var $dates = $('.post-date');
 
@@ -35,12 +36,28 @@ require(['jquery'], function() {
 				$(this).css('left', $left + 'px');
 			});
 		}
+
+		// register collapsible elements
+		$.fn.collapsible = function() {
+			var $collapsible = $('#' + this.data('collapsible'));
+
+			this.click(function(event) {
+				event.preventDefault();
+				$collapsible.slideToggle();
+			});
+		};
+
+		$('a[data-collapsible]').each(function() {
+			$(this).collapsible();
+		});
+
 	});
 });
 
 require(['socialbuttons'], function() {
 	$(document).ready(function() {
 
+		// If social buttons
 		if ($('.social-buttons').length) {
 			var socialButtons = new SocialButtons({
 				getCount: false,

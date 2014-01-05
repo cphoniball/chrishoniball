@@ -246,3 +246,6 @@ pre[class*="language-"] {
 
 .author-bio {
   font-size: 1.6rem; }
+
+.collapsible {
+  display: none; }
