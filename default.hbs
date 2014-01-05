@@ -19,17 +19,35 @@
 
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="/assets/packages/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/packages/prismjs/prism-okaidia.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
 
-
-
-    <script data-main="assets/js/main.js" src="assets/packages/requirejs/require.js"></script>
+    <script data-main="/assets/js/main" src="/assets/packages/requirejs/require.js"></script>
 
     {{ghost_head}}
 </head>
 
 <body class="{{body_class}}">
+
+    {{! The big featured header on the homepage, with the site logo and description }}
+    <header class="site-header" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
+        <div class="site-header-content row">
+            <div class="site-header-left col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-6">
+                <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
+                <h2 class="blog-description">{{@blog.description}}</h2>
+            </div>
+
+            <div class="site-header-right col-md-8 col-lg-6">
+                <ul class="site-header-nav">
+                    <li><a href="{{@blog.url}}">Home</a></li>
+                    <li><a href="{{@blog.url}}/work">Work</a></li>
+                    <li><a href="{{@blog.url}}/about">About</a></li>
+                    <li><a href="{{@blog.url}}/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     {{{body}}}
 

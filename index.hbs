@@ -3,24 +3,7 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-{{! The big featured header on the homepage, with the site logo and description }}
-<header class="site-header" {{#if @blog.cover}}style="background-image: url({{@blog.cover}})"{{/if}}>
-    <div class="site-header-content row">
-        <div class="site-header-left col-sm-8 col-sm-offset-2 col-md-offset-0 col-md-4 col-lg-6">
-            <h1 class="blog-title"><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
-            <h2 class="blog-description">{{@blog.description}}</h2>
-        </div>
 
-        <div class="site-header-right col-md-8 col-lg-6">
-            <ul class="site-header-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Work</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</header>
 
 {{! The main content area on the homepage }}
 <main class="content" role="main">
@@ -30,9 +13,8 @@
 
     <article class="{{post_class}}">
         <header class="post-header">
-            <span class="post-meta"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> {{#if tags}}on {{tags}}{{/if}}</span>
+             <div class="post-date-container"><span class="post-date post-meta cf"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="M|D|YY"}}</time></span></div>
             <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-
         </header>
         <section class="post-excerpt">
             <p>{{excerpt}}&hellip;</p>
