@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .cf:after {
   content: " ";
   display: table; }
@@ -99,7 +100,7 @@ pre[class*="language-"] {
   font-weight: 900;
   font-size: 1.6rem;
   padding-left: 0;
-  width: 310px;
+  width: 225px;
   display: block;
   margin: 0 auto; }
   .site-header-nav li {
@@ -247,5 +248,47 @@ pre[class*="language-"] {
 .author-bio {
   font-size: 1.6rem; }
 
+.collapsibles {
+  max-width: 760px;
+  width: 80%;
+  margin: 0 auto; }
+
 .collapsible {
-  display: none; }
+  display: none;
+  margin-bottom: 40px;
+  padding: 20px 30px;
+  border: 8px solid #249bff;
+  font-size: 1.8rem; }
+  .collapsible p, .collapsible ul {
+    margin: 0.6em 0; }
+
+.collapsible-close {
+  float: right; }
+  .collapsible-close:hover, .collapsible-close:active, .collapsible-close:focus {
+    cursor: pointer; }
+
+.work-list {
+  list-style: none; }
+  .work-list li:before {
+    content: "— "; }
+
+.contact-list {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0; }
+
+.social-media {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+  font-size: 1.4rem; }
+  .social-media li {
+    display: inline-block;
+    margin-right: 10px; }
+    .social-media li a {
+      color: #3a4145; }
+      .social-media li a:hover {
+        color: #249bff; }
+
+.collapsible .social-media {
+  margin-top: 20px; }

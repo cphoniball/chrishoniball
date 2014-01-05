@@ -163,7 +163,7 @@ pre[class*="language-"]
 	font-weight: 900
 	font-size: 1.6rem
 	padding-left: 0
-	width: 310px
+	width: 225px
 	display: block
 	margin: 0 auto
 	li
@@ -298,6 +298,46 @@ $twitter: #00aced
 // collapsible elements
 
 .collapsibles
+	max-width: 760px
+	width: 80%
+	margin: 0 auto
 
 .collapsible
 	display: none
+	margin-bottom: 40px
+	padding: 20px 30px
+	border: 8px solid $color-one
+	font-size: 1.8rem
+	p, ul
+		margin: .6em 0
+
+.collapsible-close
+	float: right
+	&:hover, &:active, &:focus
+		cursor: pointer
+
+.work-list
+	list-style: none
+	li:before
+		content: '— '
+
+.contact-list
+	list-style: none
+	margin-left: 0
+	padding-left: 0
+
+.social-media
+	list-style: none
+	margin-left: 0
+	padding-left: 0
+	font-size: 1.4rem
+	li
+		display: inline-block
+		margin-right: 10px
+		a
+			color: $text-color
+			&:hover
+				color: $color-one
+
+.collapsible .social-media
+	margin-top: 20px

@@ -37,13 +37,31 @@ require(['jquery'], function() {
 			});
 		}
 
+		$.fn.customSlide = function() {
+			var curCollapsible = this;
+			// close any already open elements, if it's other than the current element
+			$('.collapsible').each(function() {
+				if ($(this).attr('id') != curCollapsible.attr('id')) {
+					$(this).slideUp(300, function() {
+						curCollapsible.slideDown(300);
+					});
+				}
+			});
+
+		}
+
 		// register collapsible elements
 		$.fn.collapsible = function() {
+			var selector = '#' + this.data('collapsible');
 			var $collapsible = $('#' + this.data('collapsible'));
 
 			this.click(function(event) {
 				event.preventDefault();
-				$collapsible.slideToggle();
+				$collapsible.customSlide();
+			});
+
+			$collapsible.find('.collapsible-close').click(function(event) {
+				$collapsible.slideUp();
 			});
 		};
 

@@ -42,7 +42,6 @@
             <div class="site-header-right col-md-8 col-lg-6">
                 <ul class="site-header-nav">
                     <li><a href="{{@blog.url}}">Home</a></li>
-                    <li><a data-collapsible="work" href="#">Work</a></li>
                     <li><a data-collapsible="about" href="#">About</a></li>
                     <li><a data-collapsible="contact" href="#">Contact</a></li>
                 </ul>
@@ -52,33 +51,44 @@
 
     <div class="collapsibles">
 
-        <div class="collapsible work" id="work">
-            <header class="collapsible-header">
-                <h1 class="post-title">Work</h1>
-            </header>
-
-            <section class="collapsible-body">
-
-            </section>
-        </div>
-
         <div class="collapsible about" id="about">
             <header class="collapsible-header">
                 <h1 class="post-title">About</h1>
+                <i class="fa fa-times-circle collapsible-close"></i>
             </header>
 
             <section class="collapsible-body">
+                <p>My name is Chris, and I live and work in Nashville, Tennessee. I'm currently working as the web developer for Hammock, Inc.</p>
 
+                <p>I graduated from Vanderbilt University in May of 2013 with degrees in philosophy and math, and somehow managed to get a job using neither of them. Web design began as a hobby to keep me busy during the summer of 2011, and turned into a full time occupation that I love.</p>
+
+                <p>I consider myself a developer with a bit of design sense thrown in (which means I spend most of my time coding, but know my way around Photoshop). Don't hesitate to <a data-collapsible="contact" href="#">get in touch</a> if you're looking for a well-done site.</p>
+
+                <p>Live sites that I've built include:</p>
+                <ul class="work-list">
+                    <li><a href="http://hammock.com">Hammock.com</a></li>
+                    <li><a href="http://smallbusiness.com">SmallBusiness.com</a></li>
+                    <li><a href="http://christopherhoniball.com">ChristopherHoniball.com</a> (I do some photography, too.)</li>
+                </ul>
             </section>
         </div>
 
         <div class="collapsible contact" id="contact">
             <header class="collapsible-header">
                 <h1 class="post-title">Contact</h1>
+                <i class="fa fa-times-circle collapsible-close"></i></a>
             </header>
 
             <section class="collapsible-body">
-
+                <ul class="social-media">
+                    <li><a target="_blank" href="http://twitter.com/cphoniball"><i class="fa fa-2x fa-twitter"></i></a></li>
+                    <li><a target="_blank" href="http://www.linkedin.com/profile/view?id=92290906"><i class="fa fa-2x fa-linkedin"></i></a></li>
+                    <li><a target="_blank" href="https://github.com/cphoniball"><i class="fa fa-2x fa-github"></i></a></li>
+                </ul>
+                <ul class="contact-list">
+                    <li>Email: <a href="mailto:chris.p.honiball@gmail.com">chris.p.honiball@gmail.com</a></li>
+                    <li>Cell: 239.249.0549</li>
+                </ul>
             </section>
         </div>
 
