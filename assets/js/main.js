@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: 'http://localhost:2368',
+	baseUrl: window.location.protocol + '//' + window.location.host,
 	paths: {
 		'jquery': 'assets/packages/jquery/jquery.min',
 		'prism': 'assets/js/prism',

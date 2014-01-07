@@ -1,6 +1,6 @@
-# Casper
+# Ghost theme for Chris Honiball.com
 
-The default theme for [Ghost](http://github.com/tryghost/ghost/).
+Modified from Casper, the default theme for [Ghost](http://github.com/tryghost/ghost/).
 
 ## Copyright & License
 
