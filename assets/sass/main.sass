@@ -8,15 +8,20 @@ $sans-serif: 'museo-sans'
 $serif: 'chaparral-pro'
 
 // $color-one: #249BFF // light blue
-$color-one: #2168EB // light blue
+// $color-one: #2168EB // light blue
+//$color-one: #9e333e
+$color-one: #E0582F
 $color-two: #1F47E8 // dark blue
 $color-three: #E8670C // orange
 $color-four: #FFFAC7 // tan/yellow
 // $color-five: #FFC40D // yellow
-$color-five: #FFCA0D // yellow
+// $color-five: #FFCA0D // yellow
+//$color-five: #fa454a // dark gray
+$color-five: #33302F
 $color-six: #3D392C // dark brown
 
 $text-color: #3a4145
+$inverted-text: #FFFFEC
 
 // mixins
 
@@ -122,7 +127,7 @@ pre[class*="language-"]
 .site-header
 	padding: 10px 20px
 	background: $color-five
-	color: $color-six
+	color: #FFFFEC
 	margin-bottom: 40px
 	@include breakpoint(sm)
 		padding: 30px 60px
@@ -140,13 +145,13 @@ pre[class*="language-"]
 
 .blog-title
 	padding: 15px 20px
-	border: 8px solid $color-six
+	border: 8px solid $inverted-text
 	font-size: 3.4rem
 	display: inline-block
 	letter-spacing: 0
 	@include transition(all .3s)
 	a
-		color: $color-six
+		color: $inverted-text
 	&:hover
 		border: 8px solid $color-one
 		a
@@ -176,7 +181,7 @@ pre[class*="language-"]
 		&:last-of-type
 			margin-right: 0
 	a
-		color: $color-six
+		color: $inverted-text
 		&:hover
 			color: $color-one
 			text-decoration: none
@@ -187,8 +192,8 @@ pre[class*="language-"]
 
 // footer
 .site-footer
-	background: $color-six
-	color: white
+	background: $color-five
+	color: $inverted-text
 	a
 		color: $color-one
 		text-decoration: none
