@@ -7,19 +7,6 @@
 $sans-serif: 'museo-sans'
 $serif: 'chaparral-pro'
 
-// $color-one: #249BFF // light blue
-// $color-one: #2168EB // light blue
-//$color-one: #9e333e
-$color-one: #E0582F
-$color-two: #1F47E8 // dark blue
-$color-three: #E8670C // orange
-$color-four: #FFFAC7 // tan/yellow
-// $color-five: #FFC40D // yellow
-// $color-five: #FFCA0D // yellow
-//$color-five: #fa454a // dark gray
-$color-five: #33302F
-$color-six: #3D392C // dark brown
-
 $text-color: #3a4145
 $inverted-text: #FFFFEC
 
@@ -76,7 +63,7 @@ body
 
 h1, h2, h3, h4, h5, h6
 	font-family: $sans-serif
-	font-weight: 900
+	font-weight: 500
 	a
 		color: $text-color
 
@@ -95,13 +82,10 @@ h6
 
 a
 	text-decoration: none
-	color: $color-one
 	&:hover, &:active, &:focus
-		color: $color-one
 		text-decoration: underline
 
 code
-	color: $color-two
 	font-size: 1.5rem
 	word-break: normal
 
@@ -120,83 +104,63 @@ pre[class*="language-"]
 	margin: 1.6em 0
 
 
-// index page styles
+
 
 // header styles
 
-.site-header
-	padding: 10px 20px
-	background: $color-five
-	color: #FFFFEC
-	margin-bottom: 40px
-	@include breakpoint(sm)
-		padding: 30px 60px
-
-.site-header
-	display: table
-	width: 100%
-
-.site-header-content
-	display: table-cell
-	text-align: center
-
-.site-header-left
-
+.site-head
+	height: 100%
+	position: fixed
+	z-index: 10
+	top: 0
 
 .blog-title
-	padding: 15px 20px
-	border: 8px solid $inverted-text
-	font-size: 3.4rem
+	font-weight: 300
+	padding: 10px 15px
+	border: 3px solid white
 	display: inline-block
-	letter-spacing: 0
-	@include transition(all .3s)
+	text-align: center
 	a
-		color: $inverted-text
-	&:hover
-		border: 8px solid $color-one
-		a
+		color: white
+		&:hover
 			text-decoration: none
-			color: $color-one
 
 .blog-description
-	display: inline-block
 	font-family: $sans-serif
-	vertical-align: super
-	width: 280px
-	text-align: center
 
-.site-header-nav
-	font-family: $sans-serif
-	font-weight: 900
-	font-size: 1.6rem
-	padding-left: 0
-	width: 225px
-	display: block
-	margin: 0 auto
-	li
+// homepage styles
+
+.content
+	margin-top: 100vh
+	position: relative
+	z-index: 20
+	background-color: white
+
+.grid-item
+	width: 100%
+	p
+		margin: 0
+	img
+		width: 100%
+	@include breakpoint(sm)
+		display: inline-block
+		position: relative
 		float: left
-		list-style: none
-		margin-right: 20px
-		text-transform: uppercase
-		&:last-of-type
-			margin-right: 0
-	a
-		color: $inverted-text
-		&:hover
-			color: $color-one
-			text-decoration: none
+		width: 50%
+		overflow: hidden
+		.grid-item-height
+			margin-top: 55%
+		.grid-item-content
+			position: absolute
+			top: 0
+			left: 0
 	@include breakpoint(md)
-		margin-top: 35px
-		float: right
-		width: auto
+		width: 25%
 
-// footer
-.site-footer
-	background: $color-five
-	color: $inverted-text
-	a
-		color: $color-one
-		text-decoration: none
+
+
+
+
 
 // social buttons
 
@@ -258,93 +222,3 @@ $twitter: #00aced
 	font-size: 1.4rem
 	a
 		margin: 0
-
-// post styles
-
-.post
-	margin-top: 0
-
-.post-title
-	font-size: 3rem
-	letter-spacing: 0
-	@include header-underline()
-	a:hover, a:focus, a:active
-		text-decoration: none
-
-.post-date-container
-	display: block
-
-.post-date
-	background-color: $color-one
-	left: -100px
-	color: white
-	padding: .5em
-	display: inline-block
-	@include breakpoint(md)
-
-		position: absolute
-
-.post-meta
-
-.post-content
-	h2, h3, h4
-		font-size: 2.4rem
-		padding-bottom: 5px
-		@include header-underline()
-	p
-		margin: 1em 0
-
-.author-name
-	display: inline-block
-	padding-bottom: 5px
-	border-bottom: 1px solid darken(white, 20%)
-
-.author-bio
-	font-size: 1.6rem
-
-// collapsible elements
-
-.collapsibles
-	max-width: 760px
-	width: 80%
-	margin: 0 auto
-
-.collapsible
-	display: none
-	margin-bottom: 40px
-	padding: 20px 30px
-	border: 8px solid $color-one
-	font-size: 1.8rem
-	p, ul
-		margin: .6em 0
-
-.collapsible-close
-	float: right
-	&:hover, &:active, &:focus
-		cursor: pointer
-
-.work-list
-	list-style: none
-	li:before
-		content: '— '
-
-.contact-list
-	list-style: none
-	margin-left: 0
-	padding-left: 0
-
-.social-media
-	list-style: none
-	margin-left: 0
-	padding-left: 0
-	font-size: 1.4rem
-	li
-		display: inline-block
-		margin-right: 10px
-		a
-			color: $text-color
-			&:hover
-				color: $color-one
-
-.collapsible .social-media
-	margin-top: 20px

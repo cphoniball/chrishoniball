@@ -42,7 +42,11 @@
 }
 
 /* Apply these base styles to all icons */
-.icon-ghost, .icon-feed, .icon-twitter, .icon-google-plus, .icon-facebook {
+.icon-ghost:before,
+.icon-feed:before,
+.icon-twitter:before,
+.icon-google-plus:before,
+.icon-facebook:before {
     font-family: 'icons';
     speak: none;
     font-style: normal;
@@ -87,7 +91,7 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: 'Droid Serif', serif;
+    font-family: 'Noto Serif', serif;
     font-size: 2.0rem;
     line-height: 1.6em;
     color: #3A4145;
@@ -105,61 +109,30 @@ body {
     text-shadow: none;
 }
 
-h1, h2, h3,
-h4, h5, h6 {
-    text-rendering: optimizeLegibility;
-    line-height: 1;
-    margin-top: 0;
-    font-family: 'Open Sans', sans-serif;
-}
-
-h1 {
-    font-size: 5rem;
-    line-height: 1.2em;
-    letter-spacing: -2px;
-    text-indent: -3px;
-}
-
-h2 {
-    font-size: 4rem;
-    line-height: 1.2em;
-    letter-spacing: -1px;
-    text-indent: -2px;
-}
-
-h3 {
-    font-size: 3.5rem;
-}
-
-h4 {
-    font-size: 3rem;
-}
-
-h5 {
-    font-size: 2.5rem;
-}
-
-h6 {
-    font-size: 2rem;
-}
-
-a {
-    color: #4a4a4a;
-    transition: color ease 0.3s;
-}
-
-a:hover {
-    color: #57A3E8;
-}
-
-
-p, ul, ol {
+p, ul, ol, dl {
     margin: 1.6em 0;
 }
 
 ol ol, ul ul,
 ul ol, ol ul {
     margin: 0.4em 0;
+}
+
+dl dt {
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-bottom: 1em
+}
+
+dl dd {
+    margin-left: 200px;
+    margin-bottom: 1em
 }
 
 hr {
@@ -186,7 +159,7 @@ blockquote p {
 
 blockquote small {
     display: inline-block;
-    margin: 0.8em 0 0.8em 1.5em;;
+    margin: 0.8em 0 0.8em 1.5em;
     font-size:0.9em;
     color: #ccc;
 }
@@ -199,28 +172,6 @@ blockquote cite {
 
 blockquote cite a { font-weight: normal; }
 
-
-dl {
-    margin: 1.6em 0;
-}
-
-dl dt {
-    float: left;
-    width: 180px;
-    overflow: hidden;
-    clear: left;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: bold;
-    margin-bottom: 1em
-}
-
-dl dd {
-    margin-left: 200px;
-    margin-bottom: 1em
-}
-
 mark {
     background-color: #ffc336;
 }
@@ -229,7 +180,7 @@ code, tt {
     padding: 1px 3px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
-    white-space: pre;
+    white-space: pre-wrap;
     border: 1px solid #E3EDF3;
     background: #F7FAFB;
     border-radius: 2px;
@@ -313,11 +264,20 @@ table tbody > tr:nth-child(odd) > th {
     background-color: #f6f6f6;
 }
 
-table.plain {
-    tbody > tr:nth-child(odd) > td,
-    tbody > tr:nth-child(odd) > th {
-        background: transparent;
-    }
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+   background: transparent;
+}
+
+iframe, .fluid-width-video-wrapper {
+    display: block;
+    margin: 1.6em 0;
+}
+
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+    margin: 0;
 }
 
 
@@ -352,7 +312,7 @@ table.plain {
    ========================================================================== */
 
 /* Big cover image on the home page */
-#site-head {
+.site-head {
     position: relative;
     display: table;
     width: 100%;
@@ -364,8 +324,12 @@ table.plain {
     background-size: cover;
 }
 
+.blog-logo {
+    text-decoration: none;
+}
+
 /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
-#blog-logo img {
+.blog-logo img {
     display: block;
     max-height: 100px;
     width: auto;
@@ -373,20 +337,12 @@ table.plain {
     line-height: 0;
 }
 
-#back {
-    color: rgba(0,0,0,0.2);
-    position: fixed;
-    top: 8px;
-    left: 8px;
-    padding: 6px;
-    font-size: 16px;
-}
-
 /* The details of your blog. Defined in ghost/settings/ */
 .blog-title {
     margin: 10px 0 10px 0;
     font-size: 5rem;
     letter-spacing: -1px;
+    font-weight: bold;
 }
 
 .blog-description {
@@ -394,70 +350,9 @@ table.plain {
     font-size: 1.8rem;
     line-height: 1.5em;
     font-weight: 300;
-    font-family: 'Droid Serif', serif;
+    font-family: 'Noto Serif', serif;
     letter-spacing: 0;
-}
-
-/* Every post, on every page, gets this style on its <article> tag */
-.post {
-    position: relative;
-    width:80%;
-    max-width: 700px;
-    margin: 4rem auto;
-    padding-bottom: 4rem;
-    border-bottom: #EBF2F6 1px solid;
-    word-break: break-word;
-    hyphens: auto;
-}
-
-/* Add a little circle in the middle of the border-bottom on our .post
-   just for the lolz and stylepoints. */
-.post:after {
-    display: block;
-    content: "";
-    width: 7px;
-    height: 7px;
-    border: #E7EEF2 1px solid;
-    position: absolute;
-    bottom: -5px;
-    left: 50%;
-    margin-left: -5px;
-    background: #fff;
-    -webkit-border-radius: 100%;
-    -moz-border-radius: 100%;
-    border-radius: 100%;
-    box-shadow: #fff 0 0 0 5px;
-}
-
-.post-title {
-    margin:0;
-}
-
-.post-title a {
-    text-decoration: none;
-}
-
-.post-excerpt p {
-    margin: 1.6rem 0 0 0;
-    font-size: 0.9em;
-    line-height: 1.6em;
-}
-
-.post-meta {
-    display: inline-block;
-    margin: 0 0 5px 0;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
-    color: #9EABB3;
-}
-
-.post-meta a {
-    color: #9EABB3;
-    text-decoration: none;
-}
-
-.post-meta a:hover {
-    text-decoration: underline;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 .user-meta {
@@ -522,6 +417,12 @@ table.plain {
 /* Insert some mad padding up in the header for better spacing */
 .post-template .post-header {
     padding: 60px 0;
+    text-align: center;
+}
+
+.post-template .blog-title {
+    display: inline-block;
+    padding: 2.5rem 0;
 }
 
 /* Keep large images within the bounds of the post-width */
@@ -529,6 +430,7 @@ table.plain {
     display: block;
     max-width: 100%;
     margin: 0 auto;
+    height: auto;
 }
 
 /* The author credit area after the post */
@@ -563,7 +465,21 @@ table.plain {
     position: absolute;
     top: 4rem;
     right: 0;
+    width: 140px;
 }
+
+.post-footer .share a {
+    font-size: 1.8rem;
+    display: inline-block;
+    margin: 1.4rem 1.6rem 1.6rem 0;
+    color: #BBC7CC;
+    text-decoration: none;
+}
+
+.post-footer .share a:hover {
+    color: #50585D;
+}
+
 
 /* ==========================================================================
    6. Third Party Elements - Embeds from other services
@@ -694,7 +610,7 @@ table.plain {
     color: #D2DEE3;
     font-size: 10px;
     position: absolute;
-    top: 2px;
+    top: 9px;
     left: 9px;
     font-weight: bold;
     transition: color 0.5s ease;
@@ -717,10 +633,9 @@ table.plain {
     padding: 4px 8px 5px 8px;
     position:absolute;
     top: -23px;
-    left: -23px;
+    left: -21px;
     color: rgba(255,255,255,0.9);
     font-size: 1.1rem;
-    font-weight: bold;
     line-height: 1em;
     text-align: center;
     background: #50585D;
@@ -761,7 +676,7 @@ table.plain {
         margin-left: 0;
     }
 
-    #site-head {
+    .site-head {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -819,7 +734,7 @@ table.plain {
 
 @media only screen and (max-width: 500px) {
 
-    #blog-logo img {
+    .blog-logo img {
         max-height: 80px;
     }
 
@@ -830,15 +745,7 @@ table.plain {
         margin-right: 16px;
     }
 
-    .post {
-        width:auto;
-        margin-left: 16px;
-        margin-right: 16px;
-        font-size: 0.8em;
-        line-height: 1.6em;
-    }
-
-    #site-head {
+    .site-head {
         padding: 10% 0;
     }
 
